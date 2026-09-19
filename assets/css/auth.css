@@ -1,0 +1,182 @@
+/* ==========================================================
+   auth.css — layout compartilhado das telas de login e cadastro
+   Mobile primeiro: faixa verde em cima, formulário embaixo.
+   A partir de 900px: duas colunas lado a lado.
+   ========================================================== */
+
+.auth__layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ---------- Faixa verde (hero) ---------- */
+.auth__hero {
+  position: relative;
+  overflow: hidden;
+  padding: 24px 20px 76px;
+  background: var(--folha);
+  color: var(--floresta);
+}
+/* Dois círculos chapados: o maior usa o acento do perfil */
+.auth__hero::before,
+.auth__hero::after { content: ""; position: absolute; border-radius: 50%; }
+.auth__hero::before { top: -70px; right: -50px; width: 190px; height: 190px; background: var(--accent); }
+.auth__hero::after  { bottom: 24px; left: -34px; width: 90px; height: 90px; background: var(--sol); }
+.auth__hero > * { position: relative; z-index: 1; }
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--floresta);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-decoration: none;
+}
+.marca img { flex: none; }
+
+.auth__hero-texto { display: none; }
+
+/* Figurinhas: emojis em quadrados brancos levemente inclinados */
+.figurinha {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 4px 0 rgba(5, 59, 43, 0.25);
+  font-size: 1.5rem;
+  line-height: 1;
+  transform: rotate(-8deg);
+  pointer-events: none;
+  user-select: none;
+}
+.figurinha--1 { top: 16px; right: 16px; }
+.figurinha--2 { top: 50px; right: 70px; transform: rotate(7deg); }
+.figurinha--3 { display: none; }
+@media (max-width: 379px) {
+  .figurinha--2 { display: none; }
+}
+
+/* ---------- Painel do formulário ---------- */
+.auth__painel {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  margin-top: -44px;
+  padding: 24px 20px 40px;
+  border-radius: 28px 28px 0 0;
+  background: var(--branco);
+}
+.auth__conteudo { width: 100%; max-width: 460px; margin: 0 auto; container-type: inline-size; }
+.auth__conteudo--largo { max-width: 540px; }
+
+.auth__voltar {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.auth__voltar:hover { text-decoration: underline; }
+
+.auth__cabecalho { margin-bottom: 20px; }
+.auth__cabecalho h1 {
+  margin: 14px 0 6px;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--floresta);
+}
+.auth__cabecalho p { margin: 0; color: var(--texto-suave); }
+
+.auth__rodape { margin: 22px 0 0; text-align: center; }
+
+.grade-2 { display: grid; gap: 0 16px; }
+@container (min-width: 500px) {
+  .grade-2 { grid-template-columns: 1fr 1fr; }
+}
+
+/* Bloco de conta de teste (remover antes de publicar) */
+.conta-teste {
+  margin-top: 24px;
+  padding: 10px 14px;
+  border: 2px dashed var(--borda);
+  border-radius: var(--raio-sm);
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+.conta-teste summary {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  font-weight: 700;
+  color: var(--texto);
+  cursor: pointer;
+}
+.conta-teste p { margin: 6px 0 0; line-height: 1.9; }
+.conta-teste code {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--menta);
+  color: var(--floresta);
+  font: 500 0.9rem ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.conta-teste .btn { min-height: 46px; margin: 10px 0 4px; }
+
+/* ---------- Desktop: duas colunas ---------- */
+@media (min-width: 900px) {
+  .auth__layout { flex-direction: row; }
+
+  .auth__hero {
+    display: flex;
+    flex: 0 0 46%;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 640px;
+    padding: 48px 56px;
+  }
+  .auth__hero::before { top: -150px; right: -150px; width: 430px; height: 430px; }
+  .auth__hero::after  { bottom: -70px; left: -60px; width: 210px; height: 210px; }
+
+  .marca { font-size: 1.1rem; }
+
+  .auth__hero-texto { display: block; max-width: 30rem; }
+  .auth__hero-texto h2 {
+    margin: 0 0 16px;
+    font-size: clamp(2.2rem, 3.6vw, 3.3rem);
+    font-weight: 900;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+  }
+  .auth__hero-texto p { margin: 0 0 24px; font-size: 1.1rem; }
+
+  .beneficios { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; font-weight: 500; }
+  .beneficios li { display: flex; align-items: center; gap: 12px; }
+
+  .figurinha { width: 64px; height: 64px; border-radius: 18px; font-size: 2.1rem; }
+  .figurinha--1 { top: 48px; right: 56px; }
+  .figurinha--2 { top: 130px; right: 150px; }
+  .figurinha--3 { display: none; transform: rotate(5deg); }
+
+  .auth__painel {
+    display: grid;
+    place-items: center;
+    margin-top: 0;
+    padding: 48px 40px;
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .figurinha--3 { display: grid; top: auto; bottom: 48px; right: 32px; }
+}

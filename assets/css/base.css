@@ -1,0 +1,203 @@
+/* ==========================================================
+   base.css — tokens, reset e componentes compartilhados
+   Projeto: Educação ambiental na prática
+   ========================================================== */
+
+:root {
+  /* Paleta vibrante */
+  --folha: #2bd96b;        /* verde de destaque (fundos) */
+  --verde: #12c15a;
+  --verde-escuro: #087a38; /* links e textos sobre fundo claro */
+  --floresta: #053b2b;     /* texto forte e botões escuros */
+  --menta: #d8fbe6;
+  --sol: #ffc21a;
+  --vermelho: #e5383b;
+  --erro-texto: #b3261e;
+
+  /* Neutros */
+  --texto: #0f2a20;
+  --texto-suave: #4b6157;
+  --borda: #c9e0d2;
+  --fundo: #f4fcf7;
+  --branco: #ffffff;
+
+  /* Acento atual: muda conforme o perfil (data-perfil) */
+  --accent: var(--verde);
+  --accent-escuro: var(--verde-escuro);
+  --accent-suave: var(--menta);
+  --on-accent: #032a1e;      /* texto sobre o acento: contraste ≥ 5:1 em todos os perfis */
+
+  --raio: 16px;
+  --raio-sm: 12px;
+  --fonte: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+/* Um acento por perfil. Texto escuro sobre o acento garante contraste. */
+[data-perfil="aluno"]     { --accent: #ff8a1f; --accent-escuro: #b84a00; --accent-suave: #ffebd6; }
+[data-perfil="professor"] { --accent: #1e9bff; --accent-escuro: #0b6fcc; --accent-suave: #dcf0ff; }
+[data-perfil="gestor"]    { --accent: #a57cff; --accent-escuro: #6238db; --accent-suave: #ede4ff; }
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--fonte);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fundo);
+}
+img, svg { display: block; max-width: 100%; }
+h1, h2, h3, p { overflow-wrap: break-word; }
+a { color: var(--accent-escuro); font-weight: 500; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--accent-escuro); outline-offset: 2px; }
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: var(--raio);
+  font: 700 1rem/1 var(--fonte);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.15s ease;
+}
+.btn--bloco { width: 100%; }
+.btn:active { transform: translateY(3px); }
+.btn[disabled] { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.btn--primario {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 4px 0 var(--accent-escuro);
+}
+.btn--primario:hover { filter: brightness(1.06); }
+.btn--primario:active { box-shadow: 0 1px 0 var(--accent-escuro); }
+
+.btn--secundario {
+  background: var(--branco);
+  color: var(--accent-escuro);
+  box-shadow: inset 0 0 0 2px var(--accent-escuro);
+}
+.btn--secundario:hover { background: var(--accent-suave); }
+
+.btn--escuro {
+  background: var(--floresta);
+  color: #fff;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35);
+}
+.btn--escuro:active { box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35); }
+
+.btn--claro {
+  background: #fff;
+  color: var(--floresta);
+  box-shadow: 0 4px 0 rgba(5, 59, 43, 0.3);
+}
+.btn--claro:active { box-shadow: 0 1px 0 rgba(5, 59, 43, 0.3); }
+
+.btn-texto {
+  padding: 8px 4px;
+  min-height: 44px;
+  border: 0;
+  background: none;
+  color: var(--accent-escuro);
+  font: 500 0.9rem var(--fonte);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- Campos de formulário ---------- */
+.campo { display: grid; gap: 6px; margin-bottom: 16px; }
+.campo label { font-size: 0.9rem; font-weight: 700; color: var(--floresta); }
+
+.campo input,
+.campo select {
+  width: 100%;
+  min-height: 52px;            /* alvo de toque confortável */
+  padding: 0 14px;
+  font: 400 1rem var(--fonte); /* 16px evita zoom automático no iOS */
+  color: var(--texto);
+  background: var(--branco);
+  border: 2px solid var(--borda);
+  border-radius: var(--raio-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.campo input::placeholder { color: #7d9187; }
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: var(--accent-escuro);
+  box-shadow: 0 0 0 4px var(--accent-suave);
+}
+.campo select {
+  appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23053b2b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.campo--erro input,
+.campo--erro select { border-color: var(--vermelho); }
+.campo--erro input:focus,
+.campo--erro select:focus { box-shadow: 0 0 0 4px #fdd9da; }
+
+.campo__erro { margin: 0; font-size: 0.85rem; font-weight: 500; color: var(--erro-texto); }
+.campo__erro:empty { display: none; }
+.campo__ajuda { margin: 0; font-size: 0.82rem; color: var(--texto-suave); }
+
+.campo__senha { position: relative; display: flex; }
+.campo__senha input { padding-right: 88px; }
+.campo__olho {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  bottom: 6px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent-escuro);
+  font: 700 0.85rem var(--fonte);
+  cursor: pointer;
+}
+.campo__olho:hover { background: var(--accent-suave); }
+
+/* ---------- Alertas ---------- */
+.alerta {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-left: 6px solid;
+  border-radius: var(--raio-sm);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.alerta--erro    { background: #fdecec; color: #7a1712; border-color: var(--vermelho); }
+.alerta--sucesso { background: #e3fbec; color: #075a2a; border-color: var(--verde); }
+.alerta--info    { background: #e6f3ff; color: #0a4a85; border-color: #1e9bff; }
+.alerta a { color: inherit; font-weight: 700; text-decoration: underline; }
+
+/* ---------- Selo de perfil ---------- */
+.selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
