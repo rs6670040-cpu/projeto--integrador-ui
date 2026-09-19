@@ -1,0 +1,6 @@
+.cartao-oficina__capa { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.cartao-oficina__capa .chips { justify-content: flex-end; }
+.cartao-oficina h3 a { color: inherit; text-decoration: none; }
+.cartao-oficina h3 a:hover { text-decoration: underline; }
+.cartao-oficina__progresso { display: grid; gap: 6px; }
+.cartao-oficina__progresso-topo { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--texto-suave); }

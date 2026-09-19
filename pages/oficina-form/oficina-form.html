@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#053b2b">
+  <title>Cadastrar oficina – Educação ambiental na prática</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/app.css">
+  <link rel="stylesheet" href="oficina-form.css">
+</head>
+<body>
+  <div class="app" id="app" hidden>
+    <header id="shell-topo"></header>
+    <nav id="shell-menu"></nav>
+    <main class="principal" id="principal" tabindex="-1">
+
+      <a class="link-voltar" href="../oficinas/oficinas.html">← Voltar para oficinas</a>
+      <header class="pagina-cabecalho">
+        <div>
+          <h1 id="titulo">Nova oficina</h1>
+          <p>Descreva a oficina, escolha os materiais e monte o passo a passo que os alunos vão seguir.</p>
+        </div>
+      </header>
+
+      <form class="formulario" id="form" novalidate>
+        <div class="grade-campos grade-campos--2">
+          <div class="campo">
+            <label for="titulo-oficina">Título da oficina</label>
+            <input id="titulo-oficina" type="text" maxlength="70" autocomplete="off" placeholder="Ex.: Porta-lápis de garrafa PET" aria-describedby="titulo-oficina-erro">
+            <p class="campo__erro" id="titulo-oficina-erro" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="emoji">Ícone</label>
+            <select id="emoji"></select>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="descricao">Descrição curta</label>
+          <textarea id="descricao" maxlength="220" placeholder="O que os alunos vão fazer?" aria-describedby="descricao-erro"></textarea>
+          <p class="campo__erro" id="descricao-erro" aria-live="polite"></p>
+        </div>
+        <div class="campo">
+          <label for="objetivo">Objetivo de aprendizagem</label>
+          <textarea id="objetivo" maxlength="300" placeholder="O que a turma deve entender ao final?"></textarea>
+        </div>
+
+        <div class="grade-campos grade-campos--3">
+          <div class="campo">
+            <label for="status">Situação</label>
+            <select id="status" aria-describedby="status-ajuda"></select>
+          </div>
+          <div class="campo">
+            <label for="data">Data</label>
+            <input id="data" type="date" aria-describedby="data-erro">
+            <p class="campo__erro" id="data-erro" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="horario">Horário</label>
+            <input id="horario" type="time">
+          </div>
+        </div>
+        <p class="campo__ajuda" id="status-ajuda" style="margin:-8px 0 16px">Rascunho: só você vê. Inscrições abertas: os alunos podem participar. Encerrada: continua visível, sem novas inscrições.</p>
+
+        <div class="grade-campos grade-campos--2">
+          <div class="campo">
+            <label for="local">Local</label>
+            <input id="local" type="text" maxlength="60" placeholder="Ex.: Pátio, sala de artes" aria-describedby="local-erro">
+            <p class="campo__erro" id="local-erro" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="dificuldade">Dificuldade</label>
+            <select id="dificuldade"></select>
+          </div>
+        </div>
+        <div class="grade-campos grade-campos--2">
+          <div class="campo">
+            <label for="duracao">Duração (minutos)</label>
+            <input id="duracao" type="number" min="10" max="480" step="5" inputmode="numeric" aria-describedby="duracao-erro">
+            <p class="campo__erro" id="duracao-erro" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="vagas">Vagas</label>
+            <input id="vagas" type="number" min="1" max="200" step="1" inputmode="numeric" aria-describedby="vagas-erro">
+            <p class="campo__erro" id="vagas-erro" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>Para quais anos?</legend>
+          <div class="opcoes" id="anos"></div>
+          <p class="campo__erro" id="anos-erro" aria-live="polite"></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Materiais necessários</legend>
+          <p class="campo__ajuda" style="margin:-4px 0 10px">Marque os materiais e diga quanto cada aluno usa. Para materiais compartilhados, use uma fração (0,25 = um para cada quatro alunos). Isso alimenta a estimativa de itens reaproveitados nos relatórios.</p>
+          <div id="materiais"></div>
+          <p class="campo__erro" id="materiais-erro" aria-live="polite"></p>
+        </fieldset>
+
+        <div class="campo">
+          <label for="cuidados">Cuidados de segurança</label>
+          <textarea id="cuidados" maxlength="400" placeholder="Ex.: o professor corta as garrafas; usar tinta à base de água." aria-describedby="cuidados-ajuda"></textarea>
+          <p class="campo__ajuda" id="cuidados-ajuda">Aparece em destaque para os alunos. Deixe claro o que é feito só por adultos.</p>
+        </div>
+
+        <fieldset>
+          <legend>Passo a passo</legend>
+          <p class="campo__ajuda" style="margin:-4px 0 10px">Os alunos marcam cada passo conforme avançam. Use frases curtas e diga quando é preciso chamar o professor.</p>
+          <div id="passos"></div>
+        </fieldset>
+
+        <div class="formulario__acoes">
+          <button class="btn btn--primario" type="submit">Salvar oficina</button>
+          <a class="btn btn--secundario" href="../oficinas/oficinas.html">Cancelar</a>
+          <button class="btn btn--secundario-perigo" type="button" id="btn-excluir" hidden>Excluir oficina</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="../../assets/js/storage.js"></script>
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/componentes.js"></script>
+  <script src="../../assets/js/app-shell.js"></script>
+  <script src="oficina-form.js"></script>
+</body>
+</html>
