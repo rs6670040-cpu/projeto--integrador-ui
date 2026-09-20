@@ -1,0 +1,3 @@
+.detalhes { border-top: 2px solid var(--borda); padding-top: 10px; }
+.detalhes summary { display: flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--floresta); cursor: pointer; }
+.detalhes p { margin: 4px 0 6px; font-size: 0.95rem; color: var(--texto-suave); }

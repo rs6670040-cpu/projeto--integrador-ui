@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#053b2b">
+  <title>Cadastrar material – Educação ambiental na prática</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/app.css">
+  <link rel="stylesheet" href="material-form.css">
+</head>
+<body>
+  <div class="app" id="app" hidden>
+    <header id="shell-topo"></header>
+    <nav id="shell-menu"></nav>
+    <main class="principal" id="principal" tabindex="-1">
+
+      <a class="link-voltar" href="../materiais/materiais.html">← Voltar para materiais</a>
+      <header class="pagina-cabecalho">
+        <div>
+          <h1 id="titulo">Novo material</h1>
+          <p>Cadastre um material reciclável, os cuidados ao manuseá-lo e o que dá para criar com ele.</p>
+        </div>
+      </header>
+
+      <form class="formulario" id="form" novalidate>
+        <div class="grade-campos grade-campos--2">
+          <div class="campo">
+            <label for="nome">Nome do material</label>
+            <input id="nome" type="text" maxlength="60" autocomplete="off" placeholder="Ex.: Garrafa PET" aria-describedby="nome-erro">
+            <p class="campo__erro" id="nome-erro" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="categoria">Categoria</label>
+            <select id="categoria" aria-describedby="categoria-erro"></select>
+            <p class="campo__erro" id="categoria-erro" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="grade-campos grade-campos--3">
+          <div class="campo">
+            <label for="emoji">Ícone</label>
+            <select id="emoji"></select>
+          </div>
+          <div class="campo">
+            <label for="quantidade">Quantidade disponível</label>
+            <input id="quantidade" type="number" min="0" step="1" inputmode="numeric" aria-describedby="quantidade-erro">
+            <p class="campo__erro" id="quantidade-erro" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="unidade">Unidade</label>
+            <input id="unidade" type="text" maxlength="20" placeholder="Ex.: garrafas" aria-describedby="unidade-erro">
+            <p class="campo__erro" id="unidade-erro" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" maxlength="300" placeholder="Que material é esse e onde encontrar?" aria-describedby="descricao-erro"></textarea>
+          <p class="campo__erro" id="descricao-erro" aria-live="polite"></p>
+        </div>
+
+        <div class="campo">
+          <label for="cuidados">Cuidados ao manusear</label>
+          <textarea id="cuidados" maxlength="400" placeholder="Ex.: quem corta é o adulto; lixar as bordas…" aria-describedby="cuidados-ajuda"></textarea>
+          <p class="campo__ajuda" id="cuidados-ajuda">Aparece para os alunos junto do material. Pense em cortes, peças pequenas, vidro e tintas.</p>
+        </div>
+
+        <fieldset>
+          <legend>Ideias de reutilização</legend>
+          <p class="campo__ajuda" style="margin-top:-4px">Objetos que dá para fazer ou atividades para realizar com este material. Aparecem na tela de ideias dos alunos.</p>
+          <div id="ideias"></div>
+        </fieldset>
+
+        <div class="formulario__acoes">
+          <button class="btn btn--primario" type="submit">Salvar material</button>
+          <a class="btn btn--secundario" href="../materiais/materiais.html">Cancelar</a>
+          <button class="btn btn--secundario-perigo" type="button" id="btn-excluir" hidden>Excluir material</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="../../assets/js/storage.js"></script>
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/componentes.js"></script>
+  <script src="../../assets/js/app-shell.js"></script>
+  <script src="material-form.js"></script>
+</body>
+</html>

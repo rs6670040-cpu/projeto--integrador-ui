@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#053b2b">
+  <title>Materiais recicláveis – Educação ambiental na prática</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/app.css">
+  <link rel="stylesheet" href="materiais.css">
+</head>
+<body>
+  <div class="app" id="app" hidden>
+    <header id="shell-topo"></header>
+    <nav id="shell-menu"></nav>
+    <main class="principal" id="principal" tabindex="-1">
+
+      <header class="pagina-cabecalho">
+        <div>
+          <h1>Materiais recicláveis</h1>
+          <p>Veja o que a escola tem disponível para reaproveitar e descubra o que dá para criar com cada material.</p>
+        </div>
+        <div class="pagina-cabecalho__acoes">
+          <a class="btn btn--primario" id="btn-novo" href="../material-form/material-form.html" hidden>Novo material</a>
+        </div>
+      </header>
+
+      <form class="filtros" id="filtros" role="search" aria-label="Filtrar materiais" novalidate>
+        <div class="campo">
+          <label for="busca">Buscar material</label>
+          <input id="busca" type="search" placeholder="Ex.: garrafa, papelão…" autocomplete="off">
+        </div>
+        <div class="campo campo--curto">
+          <label for="categoria">Categoria</label>
+          <select id="categoria"><option value="">Todas</option></select>
+        </div>
+        <label class="filtros__opcao"><input type="checkbox" id="so-disponiveis"> Só os disponíveis</label>
+        <p class="filtros__resumo" id="resumo" aria-live="polite"></p>
+      </form>
+
+      <div class="grade" id="lista"></div>
+      <p class="secao__nota" style="margin-top:24px">As cores das categorias seguem o padrão da coleta seletiva (Resolução Conama 275/2001): azul para papel, vermelha para plástico, verde para vidro e amarela para metal.</p>
+    </main>
+  </div>
+
+  <script src="../../assets/js/storage.js"></script>
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/componentes.js"></script>
+  <script src="../../assets/js/app-shell.js"></script>
+  <script src="materiais.js"></script>
+</body>
+</html>

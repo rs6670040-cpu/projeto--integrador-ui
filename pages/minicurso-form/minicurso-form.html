@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#053b2b">
+  <title>Cadastrar conteúdo – Educação ambiental na prática</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/app.css">
+  <link rel="stylesheet" href="minicurso-form.css">
+</head>
+<body>
+  <div class="app" id="app" hidden>
+    <header id="shell-topo"></header>
+    <nav id="shell-menu"></nav>
+    <main class="principal" id="principal" tabindex="-1">
+
+      <a class="link-voltar" href="../minicursos/minicursos.html">← Voltar para os conteúdos</a>
+      <header class="pagina-cabecalho">
+        <div>
+          <h1 id="titulo">Novo conteúdo</h1>
+          <p>Monte um minicurso com aulas em texto, imagem ou vídeo.</p>
+        </div>
+      </header>
+
+      <form class="formulario" id="form" novalidate>
+        <div class="grade-campos grade-campos--2">
+          <div class="campo">
+            <label for="titulo-curso">Título</label>
+            <input id="titulo-curso" type="text" maxlength="80" autocomplete="off" placeholder="Ex.: Os 5 Rs da sustentabilidade" aria-describedby="titulo-curso-erro">
+            <p class="campo__erro" id="titulo-curso-erro" aria-live="polite"></p>
+          </div>
+          <div class="campo">
+            <label for="emoji">Ícone</label>
+            <select id="emoji"></select>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="descricao">Descrição curta</label>
+          <textarea id="descricao" maxlength="250" placeholder="Sobre o que é este conteúdo?" aria-describedby="descricao-erro"></textarea>
+          <p class="campo__erro" id="descricao-erro" aria-live="polite"></p>
+        </div>
+        <div class="campo campo--curto" style="max-width:260px">
+          <label for="publicado">Situação</label>
+          <select id="publicado">
+            <option value="nao">Rascunho (só você vê)</option>
+            <option value="sim">Publicado (alunos veem)</option>
+          </select>
+        </div>
+
+        <fieldset>
+          <legend>Aulas</legend>
+          <p class="campo__ajuda" style="margin:-4px 0 10px">Para imagem, use um link (https://…) ou escolha uma da biblioteca. Para vídeo, cole o link do YouTube.</p>
+          <div id="aulas"></div>
+        </fieldset>
+        <datalist id="imagens-biblioteca">
+          <option value="../../assets/img/conteudo/5rs.svg">Os cinco Rs</option>
+          <option value="../../assets/img/conteudo/lixeiras.svg">Cores das lixeiras</option>
+          <option value="../../assets/img/conteudo/garrafa-pet.svg">Garrafa PET vira porta-lápis</option>
+        </datalist>
+
+        <div class="formulario__acoes">
+          <button class="btn btn--primario" type="submit">Salvar conteúdo</button>
+          <a class="btn btn--secundario" href="../minicursos/minicursos.html">Cancelar</a>
+          <button class="btn btn--secundario-perigo" type="button" id="btn-excluir" hidden>Excluir conteúdo</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="../../assets/js/storage.js"></script>
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/componentes.js"></script>
+  <script src="../../assets/js/app-shell.js"></script>
+  <script src="minicurso-form.js"></script>
+</body>
+</html>
