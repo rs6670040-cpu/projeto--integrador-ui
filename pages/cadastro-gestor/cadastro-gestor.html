@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2bd96b">
+  <title>Criar conta do Gestor Escolar – Educação ambiental na prática</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/auth.css">
+  <link rel="stylesheet" href="cadastro-gestor.css">
+</head>
+<body data-perfil="gestor">
+  <div class="auth__layout">
+
+    <aside class="auth__hero">
+      <a class="marca" href="../inicio/inicio.html">
+        <img src="../../assets/img/logo.svg" alt="" width="44" height="44">
+        <span>Educação ambiental<br>na prática</span>
+      </a>
+
+      <div class="auth__hero-texto">
+        <h2>Sustentabilidade com acompanhamento de perto.</h2>
+        <p>Crie sua conta para gerenciar usuários e acompanhar os relatórios de participação.</p>
+        <ul class="beneficios">
+          <li>👥 Gerencie os usuários da escola</li>
+          <li>📊 Acompanhe relatórios de participação</li>
+          <li>🌳 Avalie os resultados do projeto</li>
+        </ul>
+      </div>
+
+      <span class="figurinha figurinha--1" aria-hidden="true">📊</span>
+      <span class="figurinha figurinha--2" aria-hidden="true">🏫</span>
+      <span class="figurinha figurinha--3" aria-hidden="true">🌳</span>
+    </aside>
+
+    <main class="auth__painel">
+      <div class="auth__conteudo auth__conteudo--largo">
+        <a class="auth__voltar" href="../inicio/inicio.html">← Trocar perfil</a>
+
+        <header class="auth__cabecalho">
+          <span class="selo">🏫 Gestor Escolar</span>
+          <h1>Criar conta</h1>
+          <p>Crie sua conta para acompanhar o projeto na escola.</p>
+        </header>
+
+        <div id="alerta" class="alerta" role="alert" hidden></div>
+
+        <form id="form-cadastro" novalidate>
+          <div class="campo">
+            <label for="nome">Nome completo</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como você se chama?" aria-describedby="nome-erro" required>
+            <p class="campo__erro" id="nome-erro" aria-live="polite"></p>
+          </div>
+
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@exemplo.com" aria-describedby="email-erro" required>
+            <p class="campo__erro" id="email-erro" aria-live="polite"></p>
+          </div>
+
+          <div class="grade-2">
+            <div class="campo">
+              <label for="escola">Escola</label>
+              <input id="escola" name="escola" type="text" autocomplete="organization" list="lista-escolas" placeholder="Nome da escola" aria-describedby="escola-erro" required>
+              <datalist id="lista-escolas"></datalist>
+              <p class="campo__erro" id="escola-erro" aria-live="polite"></p>
+            </div>
+
+            <div class="campo">
+              <label for="cargo">Cargo</label>
+              <select id="cargo" name="cargo" aria-describedby="cargo-erro" required>
+                <option value="" selected disabled>Selecione</option>
+              </select>
+              <p class="campo__erro" id="cargo-erro" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="grade-2">
+            <div class="campo">
+              <label for="senha">Senha</label>
+              <div class="campo__senha">
+                <input id="senha" name="senha" type="password" autocomplete="new-password" placeholder="Crie uma senha" aria-describedby="senha-ajuda senha-erro" required>
+                <button type="button" class="campo__olho" data-alternar-senha="senha" aria-label="Mostrar senha" aria-pressed="false">Mostrar</button>
+              </div>
+              <p class="campo__ajuda" id="senha-ajuda">Mínimo de 6 caracteres.</p>
+              <p class="campo__erro" id="senha-erro" aria-live="polite"></p>
+            </div>
+
+            <div class="campo">
+              <label for="confirmar">Repita a senha</label>
+              <div class="campo__senha">
+                <input id="confirmar" name="confirmar" type="password" autocomplete="new-password" placeholder="Digite de novo" aria-describedby="confirmar-erro" required>
+                <button type="button" class="campo__olho" data-alternar-senha="confirmar" aria-label="Mostrar senha" aria-pressed="false">Mostrar</button>
+              </div>
+              <p class="campo__erro" id="confirmar-erro" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primario btn--bloco">Criar conta</button>
+        </form>
+
+        <p class="auth__rodape">Já tem conta? <a href="../login-gestor/login-gestor.html">Entrar</a></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../assets/js/storage.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+  <script src="../../assets/js/auth-forms.js"></script>
+  <script src="cadastro-gestor.js"></script>
+</body>
+</html>

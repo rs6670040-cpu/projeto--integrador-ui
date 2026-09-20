@@ -1,0 +1,6 @@
+/* Cadastro do Professor: círculo azul mais alto */
+.auth__hero::before { width: 220px; height: 220px; top: -100px; }
+.figurinha--2 { transform: rotate(-5deg); }
+@media (min-width: 900px) {
+  .figurinha--3 { transform: rotate(9deg); }
+}

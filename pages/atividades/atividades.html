@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#053b2b">
+  <title>Planejamento de atividades – Educação ambiental na prática</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/app.css">
+  <link rel="stylesheet" href="atividades.css">
+</head>
+<body>
+  <div class="app" id="app" hidden>
+    <header id="shell-topo"></header>
+    <nav id="shell-menu"></nav>
+    <main class="principal" id="principal" tabindex="-1">
+
+      <header class="pagina-cabecalho">
+        <div>
+          <h1>Planejamento de atividades</h1>
+          <p>Organize aulas, oficinas, campanhas e visitas do projeto e acompanhe o que já foi realizado.</p>
+        </div>
+        <div class="pagina-cabecalho__acoes">
+          <button type="button" class="btn btn--primario" id="btn-nova">Nova atividade</button>
+        </div>
+      </header>
+
+      <div class="indicadores" id="resumo"></div>
+      <div class="secao" style="margin-top:28px">
+        <div id="abas"></div>
+        <div class="agenda" id="lista"></div>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="dialogo" id="dlg-atividade" aria-labelledby="dlg-atividade-titulo">
+    <form class="dialogo__corpo" id="form-atividade" novalidate>
+      <h2 id="dlg-atividade-titulo">Nova atividade</h2>
+      <div class="campo">
+        <label for="atv-titulo">Título</label>
+        <input id="atv-titulo" type="text" maxlength="80" autocomplete="off" placeholder="Ex.: Aula sobre coleta seletiva" aria-describedby="atv-titulo-erro">
+        <p class="campo__erro" id="atv-titulo-erro" aria-live="polite"></p>
+      </div>
+      <div class="grade-campos grade-campos--2">
+        <div class="campo">
+          <label for="atv-tipo">Tipo</label>
+          <select id="atv-tipo"></select>
+        </div>
+        <div class="campo">
+          <label for="atv-ano">Turma</label>
+          <select id="atv-ano"></select>
+        </div>
+      </div>
+      <div class="campo">
+        <label for="atv-oficina">Oficina relacionada (opcional)</label>
+        <select id="atv-oficina"></select>
+      </div>
+      <div class="grade-campos grade-campos--2">
+        <div class="campo">
+          <label for="atv-data">Data</label>
+          <input id="atv-data" type="date" aria-describedby="atv-data-erro">
+          <p class="campo__erro" id="atv-data-erro" aria-live="polite"></p>
+        </div>
+        <div class="campo">
+          <label for="atv-horario">Horário</label>
+          <input id="atv-horario" type="time">
+        </div>
+      </div>
+      <div class="campo">
+        <label for="atv-objetivo">Objetivo e observações</label>
+        <textarea id="atv-objetivo" maxlength="300" placeholder="O que a turma vai aprender ou fazer? O que precisa ser preparado?"></textarea>
+      </div>
+      <div class="campo">
+        <label for="atv-status">Situação</label>
+        <select id="atv-status"></select>
+      </div>
+      <div class="dialogo__acoes">
+        <button type="button" class="btn btn--secundario" id="atv-cancelar">Cancelar</button>
+        <button type="submit" class="btn btn--primario">Salvar atividade</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="../../assets/js/storage.js"></script>
+  <script src="../../assets/js/data.js"></script>
+  <script src="../../assets/js/ui.js"></script>
+  <script src="../../assets/js/utils.js"></script>
+  <script src="../../assets/js/componentes.js"></script>
+  <script src="../../assets/js/app-shell.js"></script>
+  <script src="atividades.js"></script>
+</body>
+</html>

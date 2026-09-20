@@ -1,0 +1,6 @@
+/* Cadastro do Gestor Escolar: círculo roxo grande, figurinhas mais retas */
+.auth__hero::before { width: 230px; height: 230px; }
+.figurinha--1 { transform: rotate(4deg); }
+@media (min-width: 900px) {
+  .figurinha--1 { right: 70px; }
+}

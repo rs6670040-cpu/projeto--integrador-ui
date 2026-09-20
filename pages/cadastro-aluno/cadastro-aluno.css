@@ -1,0 +1,5 @@
+/* Cadastro do Aluno: figurinhas mais inclinadas (jeito de adesivo) */
+.figurinha--1 { transform: rotate(-12deg); }
+@media (min-width: 900px) {
+  .figurinha--2 { right: 190px; }
+}

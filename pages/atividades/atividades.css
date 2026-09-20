@@ -1,0 +1,11 @@
+.agenda { display: grid; gap: 14px; }
+.agenda__item { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 16px; padding: 16px; border: 2px solid var(--borda); border-radius: 20px; background: #fff; }
+.agenda__item--atrasada { border-color: #d99a00; background: #fffaf0; }
+.agenda__data { display: grid; align-content: center; justify-items: center; height: 72px; border-radius: 18px; background: var(--accent); color: var(--on-accent); box-shadow: 0 3px 0 var(--accent-escuro); line-height: 1; }
+.agenda__dia { font-size: 1.9rem; font-weight: 900; }
+.agenda__mes { margin-top: 4px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
+.agenda__corpo { display: grid; gap: 8px; min-width: 0; }
+.agenda__corpo h3 { margin: 0; font-size: 1.1rem; font-weight: 700; color: var(--floresta); overflow-wrap: anywhere; }
+.agenda__corpo p { margin: 0; color: var(--texto-suave); }
+.agenda__corpo .acoes { margin-top: 4px; }
+@media (max-width: 420px) { .agenda__item { grid-template-columns: 1fr; } .agenda__data { grid-auto-flow: column; justify-content: start; gap: 8px; height: auto; width: max-content; padding: 10px 14px; } .agenda__mes { margin: 0; } }
